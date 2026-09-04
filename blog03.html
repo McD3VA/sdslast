@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why B2B and Infra Brands Are Finally Showing Up on Social Media, and Why Most Are Still Doing It Wrong</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fontshare Satoshi & Google Fonts (Playfair Display, Inter) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            head: ['Satoshi', 'sans-serif'],
+            subhead: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            editorial: {
+              bg: '#FFFFFF',
+              text: '#111111',
+              muted: '#666666',
+              border: '#E5E5E5',
+              accent: '#111111'
+            },
+            brand: {
+              navy: '#0F1F5C',
+              blue: '#1A56DB',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ========================================================= SDS NAVIGATION — BASE CSS ========================================================= -->
+  <style>
+    #sds-nav-container, #sds-nav-container * { box-sizing: border-box; }
+    #sds-nav-container { position: fixed; top: 1rem; left: 1rem; z-index: 1000; display: flex; align-items: center; height: auto; min-height: 56px; padding: 0.5rem; max-width: calc(100vw - 2rem); background: rgba(0, 0, 0, 0.80); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.10); border-radius: 9999px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, box-shadow 0.3s ease; }
+
+    /* ========================================================= LOGO ========================================================= */
+    #sds-logo-container { position: relative; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.10); background: rgba(255, 255, 255, 0.05); cursor: pointer; z-index: 10; transition: transform 0.3s ease, background 0.3s ease; }
+    #sds-logo-container:hover { background: rgba(255, 255, 255, 0.10); }
+    #sds-logo-container:active { transform: scale(0.94); }
+    #sds-logo-container img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; padding: 6px; transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    #sds-logo-collapsed { opacity: 1; transform: scale(1); }
+    #sds-logo-expanded { opacity: 0; transform: scale(0.90); pointer-events: none; }
+
+    /* ========================================================= NAVIGATION WRAPPER ========================================================= */
+    #sds-nav-wrapper { display: flex; align-items: center; overflow: hidden; max-width: 0; opacity: 0; padding-left: 0; padding-right: 0; transition: max-width 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, padding 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+    #sds-nav-container.sds-expanded #sds-nav-wrapper { max-width: 520px; opacity: 1; padding-left: 1rem; padding-right: 0.5rem; }
+
+    /* ========================================================= NAV LINKS ========================================================= */
+    #sds-nav-links { display: flex; align-items: center; width: max-content; gap: 1rem; white-space: nowrap; }
+    #sds-nav-links a { position: relative; display: inline-flex; align-items: center; padding: 0.5rem 0.25rem; color: #9ca3af; text-decoration: none; font-family: inherit; font-size: 0.875rem; font-weight: 500; line-height: 1; white-space: nowrap; transition: color 0.3s ease; }
+    #sds-nav-links a:hover { color: #ffffff; }
+    #sds-nav-links a.sds-active { color: #ffffff; }
+    .sds-active-dot { position: absolute; left: 50%; bottom: -0.25rem; width: 6px; height: 6px; border-radius: 9999px; background: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); transform: translateX(-50%) scale(0); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; }
+    #sds-nav-links a.sds-active .sds-active-dot { transform: translateX(-50%) scale(1); opacity: 1; }
+
+    /* ========================================================= RIGHT SIDE ACTIONS ========================================================= */
+    #sds-nav-actions { position: relative; z-index: 10; display: flex; align-items: center; flex-shrink: 0; }
+    #sds-nav-divider { width: 1px; height: 24px; margin: 0; background: rgba(255, 255, 255, 0.20); transform: scaleY(0); opacity: 0; transform-origin: center; transition: transform 0.4s ease, opacity 0.3s ease; }
+    #sds-nav-container.sds-expanded #sds-nav-divider { transform: scaleY(1); opacity: 1; margin-left: 0.25rem; }
+    #sds-nav-toggle { position: relative; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; margin-left: 0.25rem; border: 0; outline: none; border-radius: 9999px; background: transparent; color: #ffffff; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+    #sds-nav-toggle:hover { background: rgba(255, 255, 255, 0.10); color: #d1d5db; }
+    #sds-nav-toggle:active { transform: scale(0.95); }
+    #sds-nav-toggle:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.5); outline-offset: 2px; }
+    .sds-icon-box { position: relative; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+    .sds-icon-box svg { position: absolute; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: opacity 0.3s ease, transform 0.3s ease; }
+    #sds-menu-icon { opacity: 1; transform: rotate(0deg) scale(1); }
+    #sds-close-icon { opacity: 0; transform: rotate(-90deg) scale(0.7); }
+    #sds-nav-container.sds-expanded #sds-menu-icon { opacity: 0; transform: rotate(90deg) scale(0.7); }
+    #sds-nav-container.sds-expanded #sds-close-icon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+    /* ========================================================= CLICK OUTSIDE OVERLAY ========================================================= */
+    #sds-nav-overlay { position: fixed; inset: 0; z-index: 999; display: none; background: rgba(0, 0, 0, 0.40); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.4s ease; }
+    #sds-nav-overlay.sds-visible { display: block; opacity: 1; }
+
+    /* ========================================================= RESPONSIVE ========================================================= */
+    @media (min-width: 640px) {
+      #sds-nav-container { top: 1.5rem; left: 1.5rem; }
+      #sds-logo-container { width: 48px; height: 48px; }
+      #sds-nav-toggle { width: 42px; height: 42px; }
+      #sds-nav-links { gap: 1.5rem; }
+      #sds-nav-links a { font-size: 1rem; }
+    }
+    @media (max-width: 639px) {
+      #sds-nav-container.sds-expanded { max-width: calc(100vw - 2rem); }
+      #sds-nav-container.sds-expanded #sds-nav-wrapper { max-width: calc(100vw - 120px); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+      #sds-nav-container.sds-expanded #sds-nav-wrapper::-webkit-scrollbar { display: none; }
+      #sds-nav-links { gap: 1rem; }
+    }
+    body.sds-nav-open { overflow: hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      #sds-nav-container, #sds-nav-container *, #sds-nav-overlay { transition-duration: 0.01ms !important; }
+    }
+  </style>
+
+  <style>
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      background-color: #ffffff;
+    }
+    .linear-line {
+      border-top: 1px solid #E5E5E5;
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .slide-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.10s; }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.20s; }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; }
+    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.30s; }
+    .stagger-children.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .accent-line {
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #0F1F5C, #1A56DB);
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+    .group:hover .accent-line {
+      width: 60px;
+    }
+    .number-glow {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .group:hover .number-glow {
+      color: #0F1F5C;
+      transform: scale(1.05);
+    }
+    .cta-shimmer {
+      background: linear-gradient(135deg, #0F1F5C 0%, #1A56DB 100%);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .cta-shimmer:hover {
+      background: linear-gradient(135deg, #1A56DB 0%, #0F1F5C 100%);
+      transform: scale(1.02);
+    }
+    .img-hover {
+      transition: filter 0.7s ease, transform 0.7s ease;
+    }
+    .img-hover:hover {
+      filter: grayscale(0) contrast(1);
+      transform: scale(1.01);
+    }
+    .quote-mark {
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body class="bg-editorial-bg text-editorial-text font-sans antialiased selection:bg-brand-navy selection:text-white">
+
+  <!-- ========================================================= SDS DYNAMIC COLLAPSIBLE NAVIGATION ========================================================= -->
+  <div id="sds-nav-overlay"></div>
+  <div id="sds-nav-container">
+    <!-- LOGO -->
+    <a id="sds-logo-container" href="index.html" aria-label="SandyDesignStudio Home">
+      <!-- Collapsed Logo -->
+      <img id="sds-logo-collapsed" src="https://i.postimg.cc/K892XdFR/sds-white-logo-01-(1).png" alt="SandyDesignStudio">
+      <!-- Expanded Logo -->
+      <img id="sds-logo-expanded" src="https://i.postimg.cc/Qd63LRDP/sds-white-logo-02-(1).png" alt="SandyDesignStudio">
+    </a>
+
+    <!-- NAVIGATION LINKS -->
+    <div id="sds-nav-wrapper">
+      <nav id="sds-nav-links" aria-label="Main navigation">
+        <!-- JS inserts navigation items here -->
+      </nav>
+    </div>
+
+    <!-- RIGHT SIDE ACTIONS -->
+    <div id="sds-nav-actions">
+      <!-- Divider -->
+      <div id="sds-nav-divider"></div>
+      <!-- Toggle -->
+      <button id="sds-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <div class="sds-icon-box">
+          <!-- MENU ICON -->
+          <svg id="sds-menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 18h16"></path>
+          </svg>
+          <!-- CLOSE ICON -->
+          <svg id="sds-close-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12"></path>
+            <path d="M18 6L6 18"></path>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-6 sm:px-10 py-16 sm:py-24 lg:py-32 space-y-24 sm:space-y-32">
+
+    <!-- Header / Summary Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start fade-up" id="section-header">
+      <div class="lg:col-span-3 pt-2">
+        <span class="text-xs font-mono font-bold tracking-widest uppercase text-brand-navy/60 border-b border-brand-navy/20 pb-1">INSIGHT</span>
+      </div>
+      <div class="lg:col-span-9 space-y-8">
+        <h1 class="font-head font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight text-editorial-text leading-[1.08]">
+          Why B2B and Infra Brands Are Finally Showing Up on Social Media, and Why Most Are Still Doing It Wrong
+        </h1>
+        <div class="space-y-6 text-lg sm:text-xl text-editorial-muted leading-[1.8] font-sans pt-2">
+          <p class="text-editorial-text font-normal">
+            For years, social media was something B2B and infrastructure companies quietly skipped. It felt like a consumer thing, relevant to fashion labels and food brands, not to EPC contractors, renewable energy developers, or industrial manufacturers. That's changed.
+          </p>
+          <p class="text-neutral-500">
+            Most serious B2B and infra companies now have a LinkedIn page, an Instagram handle, sometimes both. The problem is that showing up isn't the same as showing up well, and most are making the same handful of mistakes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Visual -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 scale-in" id="section-visual">
+      <div class="lg:col-span-3"></div>
+      <div class="lg:col-span-9">
+        <div class="overflow-hidden border-b border-neutral-200 pb-3">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop" 
+               alt="B2B and Infrastructure Digital Presence" 
+               class="w-full h-[380px] sm:h-[460px] object-cover grayscale contrast-125 opacity-90 transition-all duration-700 img-hover"
+               onerror="this.src='https://placehold.co/1600x900/0F1F5C/FFFFFF?text=Sandy+Design+Studio'">
+          <div class="mt-3 flex justify-between items-center text-xs font-mono text-neutral-400">
+            <span>B2B Brand Systems & Industrial Authority</span>
+            <span>Archive 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shift Section Header -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pt-16 linear-line slide-left" id="section-shift-header">
+      <div class="lg:col-span-3 pt-2"></div>
+      <div class="lg:col-span-9 space-y-4">
+        <h2 class="font-head font-bold text-3xl sm:text-4xl tracking-tight text-editorial-text">Why This Shift Happened</h2>
+        <div class="accent-line mt-4"></div>
+        <p class="text-editorial-muted text-lg sm:text-xl font-sans pt-2">
+          Buying decisions in infrastructure and industrial sectors used to happen almost entirely through relationships, referrals, and tenders. That hasn't disappeared, but it's no longer the whole picture.
+        </p>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start fade-up" id="section-shift-details">
+      <div class="lg:col-span-3 pt-2"></div>
+      <div class="lg:col-span-9 space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+        <p>
+          Procurement heads, developers, and investors now research a company online before a meeting happens, the same way any other buyer does. A business with no digital presence increasingly reads as smaller or less established than it actually is, regardless of its real project history.
+        </p>
+        <p class="text-editorial-text font-medium">
+          So companies started showing up. The problem is most of them showed up using a consumer playbook that was never built for this audience.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mistakes Section Header -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pt-16 linear-line slide-left" id="section-mistakes-header">
+      <div class="lg:col-span-3 pt-2"></div>
+      <div class="lg:col-span-9">
+        <h2 class="font-head font-bold text-3xl sm:text-4xl tracking-tight text-editorial-text">Where B2B and Infra Brands Go Wrong</h2>
+        <div class="accent-line mt-4"></div>
+      </div>
+    </section>
+
+    <!-- Mistake One -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 group stagger-children" id="mistake-01">
+      <div class="lg:col-span-3">
+        <span class="font-head font-black text-6xl text-neutral-300 tracking-tighter number-glow">01</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h3 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">Treating It Like a Portfolio, Not a Platform</h3>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            The most common approach is posting finished project photos with a caption listing the location and capacity. Technically accurate, strategically empty. It shows what was built, not why it mattered, what problem it solved, or what expertise it took to deliver. A photo without context is forgettable within seconds of scrolling past it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mistake Two -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 group stagger-children" id="mistake-02">
+      <div class="lg:col-span-3">
+        <span class="font-head font-black text-6xl text-neutral-300 tracking-tighter number-glow">02</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h3 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">Corporate Tone With No Point of View</h3>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            Many B2B and infra pages read like a press release rewritten for social media, formal, safe, and interchangeable with any competitor's page. Nobody remembers a brand that sounds like everyone else in its category. The companies getting real engagement are the ones willing to state an actual opinion, about their industry, their process, or where things are headed, not just announce completed work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mistake Three -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 group stagger-children" id="mistake-03">
+      <div class="lg:col-span-3">
+        <span class="font-head font-black text-6xl text-neutral-300 tracking-tighter number-glow">03</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h3 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">Posting Without a System</h3>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            A page that posts actively for three weeks, then goes quiet for two months, does more damage than staying quiet altogether. Inconsistency reads as instability, even when the business behind it is stable and growing. Most B2B and infra companies don't lack content, they lack a system for turning ongoing work into a steady, planned stream of it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mistake Four -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 group stagger-children" id="mistake-04">
+      <div class="lg:col-span-3">
+        <span class="font-head font-black text-6xl text-neutral-300 tracking-tighter number-glow">04</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h3 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">Choosing the Wrong Platform to Prioritize</h3>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            A significant number of B2B and infra companies invest heavily in Instagram content while their actual buyers, developers, procurement teams, investors, are spending their research time on LinkedIn.
+          </p>
+          <p class="text-editorial-text">
+            Instagram can play an important role in visibility, culture, project storytelling, and brand perception. But for most B2B and infrastructure companies, LinkedIn should usually be the primary platform for building industry authority and reaching decision-makers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mistake Five -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 group stagger-children" id="mistake-05">
+      <div class="lg:col-span-3">
+        <span class="font-head font-black text-6xl text-neutral-300 tracking-tighter number-glow">05</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h3 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">No Human Behind the Page</h3>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            Company pages that never show the people building the work tend to underperform pages associated with a visible founder or leadership voice. In B2B especially, people don't just buy from companies, they buy from people they've formed some impression of. A founder sharing perspective consistently often outperforms a polished but faceless company account.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mistake Six -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 group stagger-children" id="mistake-06">
+      <div class="lg:col-span-3">
+        <span class="font-head font-black text-6xl text-neutral-300 tracking-tighter number-glow">06</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h3 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">Looking Like Every Other Infrastructure Company</h3>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            Many infrastructure companies have strong project capabilities but weak brand differentiation. Their websites, presentations, social media posts, and company profiles all look interchangeable with competitors. The same blue gradients. The same drone shots. The same generic captions.
+          </p>
+          <p class="text-editorial-text">
+            In a sector where technical capabilities can often sound similar, brand perception becomes a differentiator. A clear positioning strategy, distinctive visual system, and consistent communication style can make a company easier to remember long before the next meeting or tender.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pull Quote Block -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 fade-up" id="section-quote">
+      <div class="lg:col-span-3">
+        <span class="text-4xl font-subhead italic text-brand-navy/30 quote-mark">“</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <blockquote class="font-subhead italic text-2xl sm:text-3xl text-editorial-text leading-snug">
+          "Instagram has a role, mostly in humanizing the brand and showing culture, but it's rarely where a serious buying decision gets influenced."
+        </blockquote>
+        <div class="flex items-center gap-4 pt-2">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" 
+               alt="Sandy Design Studio" 
+               class="w-10 h-10 rounded-full object-cover grayscale"
+               onerror="this.src='https://placehold.co/100x100/0F1F5C/FFFFFF?text=SD'">
+          <div>
+            <div class="font-head font-bold text-sm text-editorial-text">Sandy Design Studio</div>
+            <div class="text-xs font-mono text-brand-navy/70 uppercase tracking-wider">Design & Strategy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Doing It Right Looks Like -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-20 fade-up" id="section-right-way">
+      <div class="lg:col-span-3 pt-2"></div>
+      <div class="lg:col-span-9 space-y-8">
+        <h2 class="font-head font-bold text-3xl sm:text-4xl text-editorial-text">What Doing It Right Actually Looks Like</h2>
+        <div class="space-y-6 text-editorial-muted text-lg sm:text-xl leading-[1.8] font-sans">
+          <p>
+            The B2B and infra companies getting real value from social media share a few habits:
+          </p>
+          <div class="space-y-4 pt-2 font-sans text-editorial-text text-base sm:text-lg leading-relaxed">
+            <div class="flex items-start gap-4 hover:pl-2 transition-all duration-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-navy mt-3 shrink-0"></span>
+              <p>They post with context, not just documentation, explaining the thinking behind a project, not just showing the result.</p>
+            </div>
+            <div class="flex items-start gap-4 hover:pl-2 transition-all duration-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-navy mt-3 shrink-0"></span>
+              <p>They maintain a consistent point of view instead of sounding interchangeable with competitors.</p>
+            </div>
+            <div class="flex items-start gap-4 hover:pl-2 transition-all duration-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-navy mt-3 shrink-0"></span>
+              <p>They post on a planned schedule instead of in unpredictable bursts.</p>
+            </div>
+            <div class="flex items-start gap-4 hover:pl-2 transition-all duration-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-navy mt-3 shrink-0"></span>
+              <p>They prioritize LinkedIn as the primary channel, since that's where their actual buyers are researching.</p>
+            </div>
+            <div class="flex items-start gap-4 hover:pl-2 transition-all duration-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-navy mt-3 shrink-0"></span>
+              <p>They let real people—founders, engineers, project leads—be part of the story, not just the finished structure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Opportunity This Creates -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-20 fade-up" id="section-opportunity">
+      <div class="lg:col-span-3 pt-2"></div>
+      <div class="lg:col-span-9 space-y-8">
+        <h2 class="font-head font-bold text-3xl sm:text-4xl text-editorial-text">The Opportunity This Creates</h2>
+        <div class="space-y-6 text-editorial-muted text-lg sm:text-xl leading-[1.8] font-sans">
+          <p>
+            Because so many B2B and infra companies are still getting this wrong, the bar to stand out is lower than it looks. A company willing to post with real perspective, real consistency, and the right platform priority doesn't need to outspend competitors. It just needs to be one of the few actually doing it properly.
+          </p>
+          <p class="text-editorial-text font-medium pt-2">
+            If your business is active online but it isn't translating into real inquiries, that's usually a strategy gap, not an effort gap.
+          </p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="pt-8 pb-12">
+          <p class="font-head font-bold text-xl sm:text-2xl text-editorial-text mb-6">
+            Ready to position your B2B or infrastructure brand where serious buyers are looking?
+          </p>
+          <a href="connect.html#contactForm" class="inline-flex items-center gap-3 text-white px-8 py-4 rounded-lg font-head font-medium transition-all text-base tracking-wide group cta-shimmer shadow-lg shadow-brand-navy/20 hover:shadow-brand-blue/30 cursor-pointer">
+            Talk to Sandy Design Studio
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================= SDS NAVIGATION JAVASCRIPT ========================================================= -->
+  <script>
+    (function () {
+      'use strict';
+      const navItems = [
+        { label: 'Built', href: 'built.html' },
+        { label: 'Create', href: 'create.html' },
+        { label: 'Studio', href: 'studio.html' },
+        { label: 'Think', href: 'think.html' },
+        { label: 'Connect', href: 'connect.html' }
+      ];
+
+      const navContainer = document.getElementById('sds-nav-container');
+      const navWrapper = document.getElementById('sds-nav-wrapper');
+      const navLinks = document.getElementById('sds-nav-links');
+      const toggleButton = document.getElementById('sds-nav-toggle');
+      const overlay = document.getElementById('sds-nav-overlay');
+
+      function renderNavigation() {
+        if (!navLinks) return;
+        navLinks.innerHTML = '';
+        let currentPage = window.location.pathname.split('/').pop().toLowerCase();
+        if (!currentPage) {
+          currentPage = 'index.html';
+        }
+        navItems.forEach(function (item) {
+          const link = document.createElement('a');
+          link.href = item.href;
+          link.setAttribute('aria-label', item.label);
+          const isActive = currentPage === item.href.toLowerCase();
+          if (isActive) {
+            link.classList.add('sds-active');
+          }
+          const text = document.createElement('span');
+          text.textContent = item.label;
+          const dot = document.createElement('span');
+          dot.className = 'sds-active-dot';
+          link.appendChild(text);
+          link.appendChild(dot);
+          navLinks.appendChild(link);
+        });
+      }
+
+      function openNavigation() {
+        navContainer.classList.add('sds-expanded');
+        overlay.classList.add('sds-visible');
+        document.body.classList.add('sds-nav-open');
+        toggleButton.setAttribute('aria-expanded', 'true');
+        toggleButton.setAttribute('aria-label', 'Close menu');
+      }
+
+      function closeNavigation() {
+        navContainer.classList.remove('sds-expanded');
+        overlay.classList.remove('sds-visible');
+        document.body.classList.remove('sds-nav-open');
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.setAttribute('aria-label', 'Open menu');
+      }
+
+      function toggleNavigation() {
+        const isExpanded = navContainer.classList.contains('sds-expanded');
+        if (isExpanded) {
+          closeNavigation();
+        } else {
+          openNavigation();
+        }
+      }
+
+      toggleButton.addEventListener('click', function (event) {
+        event.stopPropagation();
+        toggleNavigation();
+      });
+
+      overlay.addEventListener('click', function () {
+        closeNavigation();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeNavigation();
+        }
+      });
+
+      navLinks.addEventListener('click', function (event) {
+        const link = event.target.closest('a');
+        if (!link) return;
+        closeNavigation();
+      });
+
+      renderNavigation();
+      window.addEventListener('popstate', renderNavigation);
+    })();
+  </script>
+
+  <!-- ========================================================= PAGE FUNCTIONALITY JAVASCRIPT ========================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-up, .scale-in, .slide-left, .stagger-children');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      fadeElements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

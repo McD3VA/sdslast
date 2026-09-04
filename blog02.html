@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Renewable Energy Companies With Strong Projects Still Look Invisible Online</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fontshare Satoshi & Google Fonts (Playfair Display, Inter) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            head: ['Satoshi', 'sans-serif'],
+            subhead: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            editorial: {
+              bg: '#FFFFFF',
+              text: '#111111',
+              muted: '#666666',
+              border: '#E5E5E5',
+              accent: '#111111'
+            },
+            brand: {
+              navy: '#0F1F5C',
+              blue: '#1A56DB',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ========================================================= SDS NAVIGATION — BASE CSS ========================================================= -->
+  <style>
+    #sds-nav-container, #sds-nav-container * { box-sizing: border-box; }
+    #sds-nav-container { position: fixed; top: 1rem; left: 1rem; z-index: 1000; display: flex; align-items: center; height: auto; min-height: 56px; padding: 0.5rem; max-width: calc(100vw - 2rem); background: rgba(0, 0, 0, 0.80); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.10); border-radius: 9999px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, box-shadow 0.3s ease; }
+
+    /* ========================================================= LOGO ========================================================= */
+    #sds-logo-container { position: relative; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.10); background: rgba(255, 255, 255, 0.05); cursor: pointer; z-index: 10; transition: transform 0.3s ease, background 0.3s ease; }
+    #sds-logo-container:hover { background: rgba(255, 255, 255, 0.10); }
+    #sds-logo-container:active { transform: scale(0.94); }
+    #sds-logo-container img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; padding: 6px; transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    #sds-logo-collapsed { opacity: 1; transform: scale(1); }
+    #sds-logo-expanded { opacity: 0; transform: scale(0.90); pointer-events: none; }
+
+    /* ========================================================= NAVIGATION WRAPPER ========================================================= */
+    #sds-nav-wrapper { display: flex; align-items: center; overflow: hidden; max-width: 0; opacity: 0; padding-left: 0; padding-right: 0; transition: max-width 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, padding 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+    #sds-nav-container.sds-expanded #sds-nav-wrapper { max-width: 520px; opacity: 1; padding-left: 1rem; padding-right: 0.5rem; }
+
+    /* ========================================================= NAV LINKS ========================================================= */
+    #sds-nav-links { display: flex; align-items: center; width: max-content; gap: 1rem; white-space: nowrap; }
+    #sds-nav-links a { position: relative; display: inline-flex; align-items: center; padding: 0.5rem 0.25rem; color: #9ca3af; text-decoration: none; font-family: inherit; font-size: 0.875rem; font-weight: 500; line-height: 1; white-space: nowrap; transition: color 0.3s ease; }
+    #sds-nav-links a:hover { color: #ffffff; }
+    #sds-nav-links a.sds-active { color: #ffffff; }
+    .sds-active-dot { position: absolute; left: 50%; bottom: -0.25rem; width: 6px; height: 6px; border-radius: 9999px; background: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); transform: translateX(-50%) scale(0); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; }
+    #sds-nav-links a.sds-active .sds-active-dot { transform: translateX(-50%) scale(1); opacity: 1; }
+
+    /* ========================================================= RIGHT SIDE ACTIONS ========================================================= */
+    #sds-nav-actions { position: relative; z-index: 10; display: flex; align-items: center; flex-shrink: 0; }
+    #sds-nav-divider { width: 1px; height: 24px; margin: 0; background: rgba(255, 255, 255, 0.20); transform: scaleY(0); opacity: 0; transform-origin: center; transition: transform 0.4s ease, opacity 0.3s ease; }
+    #sds-nav-container.sds-expanded #sds-nav-divider { transform: scaleY(1); opacity: 1; margin-left: 0.25rem; }
+    #sds-nav-toggle { position: relative; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; margin-left: 0.25rem; border: 0; outline: none; border-radius: 9999px; background: transparent; color: #ffffff; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+    #sds-nav-toggle:hover { background: rgba(255, 255, 255, 0.10); color: #d1d5db; }
+    #sds-nav-toggle:active { transform: scale(0.95); }
+    #sds-nav-toggle:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.5); outline-offset: 2px; }
+    .sds-icon-box { position: relative; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+    .sds-icon-box svg { position: absolute; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: opacity 0.3s ease, transform 0.3s ease; }
+    #sds-menu-icon { opacity: 1; transform: rotate(0deg) scale(1); }
+    #sds-close-icon { opacity: 0; transform: rotate(-90deg) scale(0.7); }
+    #sds-nav-container.sds-expanded #sds-menu-icon { opacity: 0; transform: rotate(90deg) scale(0.7); }
+    #sds-nav-container.sds-expanded #sds-close-icon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+    /* ========================================================= CLICK OUTSIDE OVERLAY ========================================================= */
+    #sds-nav-overlay { position: fixed; inset: 0; z-index: 999; display: none; background: rgba(0, 0, 0, 0.40); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.4s ease; }
+    #sds-nav-overlay.sds-visible { display: block; opacity: 1; }
+
+    /* ========================================================= RESPONSIVE ========================================================= */
+    @media (min-width: 640px) {
+      #sds-nav-container { top: 1.5rem; left: 1.5rem; }
+      #sds-logo-container { width: 48px; height: 48px; }
+      #sds-nav-toggle { width: 42px; height: 42px; }
+      #sds-nav-links { gap: 1.5rem; }
+      #sds-nav-links a { font-size: 1rem; }
+    }
+    @media (max-width: 639px) {
+      #sds-nav-container.sds-expanded { max-width: calc(100vw - 2rem); }
+      #sds-nav-container.sds-expanded #sds-nav-wrapper { max-width: calc(100vw - 120px); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+      #sds-nav-container.sds-expanded #sds-nav-wrapper::-webkit-scrollbar { display: none; }
+      #sds-nav-links { gap: 1rem; }
+    }
+    body.sds-nav-open { overflow: hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      #sds-nav-container, #sds-nav-container *, #sds-nav-overlay { transition-duration: 0.01ms !important; }
+    }
+  </style>
+
+  <style>
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      background-color: #ffffff;
+    }
+    .linear-line {
+      border-top: 1px solid #E5E5E5;
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .slide-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .accent-line {
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #0F1F5C, #1A56DB);
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+    .group:hover .accent-line {
+      width: 60px;
+    }
+    .cta-shimmer {
+      background: linear-gradient(135deg, #0F1F5C 0%, #1A56DB 100%);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .cta-shimmer:hover {
+      background: linear-gradient(135deg, #1A56DB 0%, #0F1F5C 100%);
+      transform: scale(1.02);
+    }
+    .img-hover {
+      transition: filter 0.7s ease, transform 0.7s ease;
+    }
+    .img-hover:hover {
+      filter: grayscale(0) contrast(1);
+      transform: scale(1.01);
+    }
+    .quote-mark {
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body class="bg-editorial-bg text-editorial-text font-sans antialiased selection:bg-brand-navy selection:text-white">
+
+  <!-- ========================================================= SDS DYNAMIC COLLAPSIBLE NAVIGATION ========================================================= -->
+  <div id="sds-nav-overlay"></div>
+  <div id="sds-nav-container">
+    <!-- LOGO -->
+    <a id="sds-logo-container" href="index.html" aria-label="SandyDesignStudio Home">
+      <!-- Collapsed Logo -->
+      <img id="sds-logo-collapsed" src="https://i.postimg.cc/K892XdFR/sds-white-logo-01-(1).png" alt="SandyDesignStudio">
+      <!-- Expanded Logo -->
+      <img id="sds-logo-expanded" src="https://i.postimg.cc/Qd63LRDP/sds-white-logo-02-(1).png" alt="SandyDesignStudio">
+    </a>
+
+    <!-- NAVIGATION LINKS -->
+    <div id="sds-nav-wrapper">
+      <nav id="sds-nav-links" aria-label="Main navigation">
+        <!-- JS inserts navigation items here -->
+      </nav>
+    </div>
+
+    <!-- RIGHT SIDE ACTIONS -->
+    <div id="sds-nav-actions">
+      <!-- Divider -->
+      <div id="sds-nav-divider"></div>
+      <!-- Toggle -->
+      <button id="sds-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <div class="sds-icon-box">
+          <!-- MENU ICON -->
+          <svg id="sds-menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 18h16"></path>
+          </svg>
+          <!-- CLOSE ICON -->
+          <svg id="sds-close-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12"></path>
+            <path d="M18 6L6 18"></path>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-6 sm:px-10 py-16 sm:py-24 lg:py-32 space-y-24 sm:space-y-32">
+
+    <!-- Header / Summary Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start fade-up" id="section-header">
+      <div class="lg:col-span-3 pt-2">
+        <span class="text-xs font-mono font-bold tracking-widest uppercase text-brand-navy/60 border-b border-brand-navy/20 pb-1">INSIGHT</span>
+      </div>
+      <div class="lg:col-span-9 space-y-8">
+        <h1 class="font-head font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight text-editorial-text leading-[1.08]">
+          Why Renewable Energy Companies With Strong Projects Still Look Invisible Online
+        </h1>
+        <div class="space-y-6 text-lg sm:text-xl text-editorial-muted leading-[1.8] font-sans pt-2">
+          <p class="text-editorial-text font-normal">
+            There's a strange pattern that shows up again and again in India's renewable energy sector. A company has real projects. Real megawatts installed. Real clients who've trusted them for over a decade. And yet, when someone searches for them online, almost nothing comes up that reflects any of that.
+          </p>
+          <p class="text-neutral-500">
+            This isn't a business problem. It's a visibility problem, and it's costing renewable energy developers more than most of them realize.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Visual -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 scale-in" id="section-visual">
+      <div class="lg:col-span-3"></div>
+      <div class="lg:col-span-9">
+        <div class="overflow-hidden border-b border-neutral-200 pb-3">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1600&auto=format&fit=crop" 
+               alt="Renewable Energy Infrastructure" 
+               class="w-full h-[380px] sm:h-[460px] object-cover grayscale contrast-125 opacity-90 transition-all duration-700 img-hover"
+               onerror="this.src='https://placehold.co/1600x900/0F1F5C/FFFFFF?text=Sandy+Design+Studio'">
+          <div class="mt-3 flex justify-between items-center text-xs font-mono text-neutral-400">
+            <span>Renewable Infrastructure & Digital Authority</span>
+            <span>Archive 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 01: The Work Is Real -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 fade-up" id="section-real-work">
+      <div class="lg:col-span-3 pt-2">
+        <span class="text-xs font-mono font-bold tracking-widest uppercase text-brand-navy/60 border-b border-brand-navy/20 pb-1">01 / REALITY</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h2 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">The Work Is Real. The Proof Isn't Public.</h2>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            Most established solar and renewable energy companies have flagship projects worth showcasing. A large housing board installation. A major industrial client. Years of commissioned capacity. But ask where that proof actually lives online, and the answer is often nowhere.
+          </p>
+          <p>
+            No case study page. No project gallery. No documented before and after. The work exists in files, reports, and client folders, not in a place a prospective client, investor, or partner can actually find it.
+          </p>
+          <p class="text-editorial-text font-medium pt-2">
+            Meanwhile, a newer competitor with a fraction of the project history can look more credible online simply because they documented everything from day one.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 02: Visibility Isn't Vanity -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-16 fade-up" id="section-visibility-filter">
+      <div class="lg:col-span-3 pt-2">
+        <span class="text-xs font-mono font-bold tracking-widest uppercase text-brand-navy/60 border-b border-brand-navy/20 pb-1">02 / FILTER</span>
+      </div>
+      <div class="lg:col-span-9 space-y-6">
+        <h2 class="font-head font-bold text-2xl sm:text-3xl text-editorial-text">Visibility Isn't Vanity. It's the First Filter.</h2>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            Before any serious buyer, whether that's a homeowner, a corporate energy buyer, or an investor, picks up the phone, they search. What they find in those first few minutes often decides whether a conversation happens at all.
+          </p>
+          <p>
+            If a company with thirteen years of real projects shows up under five different addresses across directories, split across multiple LinkedIn pages, with a few wrongly categorized listings, it doesn't read as established. It reads as scattered, even when the underlying business is anything but.
+          </p>
+          <p class="text-editorial-text font-medium pt-2">
+            This is the gap that quietly costs renewable energy developers their best leads, not weaker work, but weaker documentation of stronger work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gap vs SDS Service Table / Breakdown Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-20 fade-up" id="section-gaps-table">
+      <div class="lg:col-span-3 pt-2">
+        <span class="text-xs font-mono font-bold tracking-widest uppercase text-brand-navy/60 border-b border-brand-navy/20 pb-1">03 / SOLUTIONS</span>
+      </div>
+      <div class="lg:col-span-9 space-y-8">
+        <h2 class="font-head font-bold text-3xl sm:text-4xl text-editorial-text">What Most Renewable Energy Companies Aren't Doing, and What Closes the Gap</h2>
+        <p class="text-editorial-muted text-lg font-sans">
+          Every one of these gaps has a specific, fixable cause. Here's what's usually missing, and the exact work that closes it.
+        </p>
+
+        <!-- Responsive Table -->
+        <div class="overflow-x-auto pt-4">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-neutral-300 font-mono text-xs uppercase tracking-wider text-neutral-500">
+                <th class="py-4 pr-4">What's Usually Missing</th>
+                <th class="py-4 pr-4">Why It Costs You Leads</th>
+                <th class="py-4 pl-4 text-brand-navy font-bold">The SDS Service That Fixes It</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 text-sm sm:text-base font-sans">
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">No clear positioning or point of difference</td>
+                <td class="py-4 pr-4 text-editorial-muted">Buyers can't tell you apart from competitors with similar project histories.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Brand strategy, positioning, and competitive analysis</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">No documented project proof or case studies</td>
+                <td class="py-4 pr-4 text-editorial-muted">Real work stays invisible to the people deciding whether to trust you.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Brand Storytelling and Content Strategy (Authority Content)</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">Inconsistent identity across directories, LinkedIn, and the website</td>
+                <td class="py-4 pr-4 text-editorial-muted">A strong company reads as scattered or unestablished.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Brand Identity: one consistent visual and naming system across every listing</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">Scattered or duplicate business listings</td>
+                <td class="py-4 pr-4 text-editorial-muted">Search results actively work against you instead of for you.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Platform building</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">No real footage of completed projects or teams</td>
+                <td class="py-4 pr-4 text-editorial-muted">Claims of expertise have no visual backing them up.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Video production, capturing real projects, sites, and teams</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">Existing footage that looks unpolished or inconsistent</td>
+                <td class="py-4 pr-4 text-editorial-muted">Even good projects can look unconvincing on screen.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Good post-production</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">Active social presence with no strategy behind it</td>
+                <td class="py-4 pr-4 text-editorial-muted">Activity without a message doesn't build trust or recall.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Content Strategy</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-4 text-editorial-text font-medium">No consistent lead flow from digital presence</td>
+                <td class="py-4 pr-4 text-editorial-muted">Visibility exists but never converts into inquiries.</td>
+                <td class="py-4 pl-4 text-brand-navy font-medium">Growth Marketing (Lead generation campaigns)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why This Matters More in a Competitive Market -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-20 fade-up" id="section-competitive-market">
+      <div class="lg:col-span-3 pt-2"></div>
+      <div class="lg:col-span-9 space-y-6">
+        <h2 class="font-head font-bold text-3xl sm:text-4xl text-editorial-text">Why This Matters More in a Competitive Market</h2>
+        <div class="space-y-6 text-editorial-muted text-base sm:text-lg leading-[1.8] font-sans">
+          <p>
+            As more capital and more competitors enter the renewable energy space, credibility increasingly gets decided online before it gets decided in a meeting room. A company with a smaller project history but stronger visibility can consistently outcompete one with a stronger track record and a weaker digital footprint.
+          </p>
+          <p class="text-editorial-text font-medium">
+            The businesses that win the next phase of this industry won't just be the ones doing the best work. They'll be the ones whose best work is the easiest to find.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Actual Fix Is Simpler Than It Looks -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start linear-line pt-20 fade-up" id="section-conclusion">
+      <div class="lg:col-span-3 pt-2"></div>
+      <div class="lg:col-span-9 space-y-8">
+        <h2 class="font-head font-bold text-3xl sm:text-4xl text-editorial-text">The Actual Fix Is Simpler Than It Looks</h2>
+        <div class="space-y-6 text-editorial-muted text-lg sm:text-xl leading-[1.8] font-sans">
+          <p>
+            None of this requires a full rebrand or a massive campaign. It starts with showing up properly on the platforms your audience already uses, making your identity consistent everywhere it appears, and finally putting your real project history somewhere it can actually be found.
+          </p>
+          <p>
+            Most renewable energy companies already have everything worth showing. What's missing isn't the work. It's a system built to make that work visible, and that's exactly where each of the gaps above gets closed.
+          </p>
+          <p class="font-subhead italic text-2xl sm:text-3xl text-editorial-text pt-6 border-t border-neutral-200">
+            If your project history is stronger than your search results suggest, that gap is fixable, and usually faster than expected.
+          </p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="pt-8 pb-12">
+          <p class="font-head font-bold text-xl sm:text-2xl text-editorial-text mb-6">
+            Ready to make your renewable energy projects visible to the clients and partners who matter?
+          </p>
+          <a href="connect.html#contactForm" class="inline-flex items-center gap-3 text-white px-8 py-4 rounded-lg font-head font-medium transition-all text-base tracking-wide group cta-shimmer shadow-lg shadow-brand-navy/20 hover:shadow-brand-blue/30 cursor-pointer">
+            Talk to Sandy Design Studio
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================= SDS NAVIGATION JAVASCRIPT ========================================================= -->
+  <script>
+    (function () {
+      'use strict';
+      const navItems = [
+        { label: 'Built', href: 'built.html' },
+        { label: 'Create', href: 'create.html' },
+        { label: 'Studio', href: 'studio.html' },
+        { label: 'Think', href: 'think.html' },
+        { label: 'Connect', href: 'connect.html' }
+      ];
+
+      const navContainer = document.getElementById('sds-nav-container');
+      const navWrapper = document.getElementById('sds-nav-wrapper');
+      const navLinks = document.getElementById('sds-nav-links');
+      const toggleButton = document.getElementById('sds-nav-toggle');
+      const overlay = document.getElementById('sds-nav-overlay');
+
+      function renderNavigation() {
+        if (!navLinks) return;
+        navLinks.innerHTML = '';
+        let currentPage = window.location.pathname.split('/').pop().toLowerCase();
+        if (!currentPage) {
+          currentPage = 'index.html';
+        }
+        navItems.forEach(function (item) {
+          const link = document.createElement('a');
+          link.href = item.href;
+          link.setAttribute('aria-label', item.label);
+          const isActive = currentPage === item.href.toLowerCase();
+          if (isActive) {
+            link.classList.add('sds-active');
+          }
+          const text = document.createElement('span');
+          text.textContent = item.label;
+          const dot = document.createElement('span');
+          dot.className = 'sds-active-dot';
+          link.appendChild(text);
+          link.appendChild(dot);
+          navLinks.appendChild(link);
+        });
+      }
+
+      function openNavigation() {
+        navContainer.classList.add('sds-expanded');
+        overlay.classList.add('sds-visible');
+        document.body.classList.add('sds-nav-open');
+        toggleButton.setAttribute('aria-expanded', 'true');
+        toggleButton.setAttribute('aria-label', 'Close menu');
+      }
+
+      function closeNavigation() {
+        navContainer.classList.remove('sds-expanded');
+        overlay.classList.remove('sds-visible');
+        document.body.classList.remove('sds-nav-open');
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.setAttribute('aria-label', 'Open menu');
+      }
+
+      function toggleNavigation() {
+        const isExpanded = navContainer.classList.contains('sds-expanded');
+        if (isExpanded) {
+          closeNavigation();
+        } else {
+          openNavigation();
+        }
+      }
+
+      toggleButton.addEventListener('click', function (event) {
+        event.stopPropagation();
+        toggleNavigation();
+      });
+
+      overlay.addEventListener('click', function () {
+        closeNavigation();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeNavigation();
+        }
+      });
+
+      navLinks.addEventListener('click', function (event) {
+        const link = event.target.closest('a');
+        if (!link) return;
+        closeNavigation();
+      });
+
+      renderNavigation();
+      window.addEventListener('popstate', renderNavigation);
+    })();
+  </script>
+
+  <!-- ========================================================= PAGE FUNCTIONALITY JAVASCRIPT ========================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-up, .scale-in, .slide-left');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      fadeElements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
