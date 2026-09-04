@@ -56,9 +56,7 @@
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     #logo-container-wrap { transition: width 500ms cubic-bezier(0.22, 1, 0.36, 1), background-color 400ms ease, border 400ms ease, border-radius 400ms ease, padding 400ms ease; }
-  </style>
 
-  <style>
     /* ----- Global Reset & Base ----- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { width: 100%; -webkit-text-size-adjust: 100%; }
@@ -90,6 +88,8 @@
       background: linear-gradient(135deg, #0C1334 0%, #27397f 50%, #5ea7db 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      display: inline-block;
+      padding-bottom: 0.25em; /* Prevents descender clipping */
     }
 
     /* ----- Button Styles with Engaging Animations ----- */
@@ -300,7 +300,7 @@
           <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black leading-[1.15] tracking-tight mb-3 sm:mb-4">
             <span class="block font-medium hero-anim mb-1 scroll-reveal">Thinking about</span>
             <span class="block font-medium hero-anim mb-1 scroll-reveal">your next move?</span>
-            <span class="block font-serif-italic pt-1 text-gradient-sds hero-anim sm:whitespace-nowrap scroll-reveal">Let’s figure it out together.</span>
+            <span class="block font-serif-italic pt-1 text-gradient-sds hero-anim scroll-reveal">Let’s figure it out together.</span>
           </h1>
           <div class="mt-2 md:mt-3 hero-anim scroll-reveal">
             <p class="text-black text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-lg mx-auto md:mx-0">
