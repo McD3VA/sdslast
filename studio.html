@@ -184,7 +184,6 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* PC Desktop Adjustments for Hero Logo & Spacing */
     @media (min-width: 1024px) {
       .card-hero .card-right {
         align-items: center !important;
@@ -224,7 +223,6 @@
     .step-title { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.3rem; color: #ffffff; }
     .step-desc { font-size: 0.8rem; color: #cccccc; line-height: 1.5; }
 
-    /* Mobile Optimization for Process Section */
     @media (max-width: 1023px) {
       .process-section {
         min-height: auto;
@@ -278,7 +276,6 @@
       display: block;
     }
 
-    /* Mobile/Tablet Overrides */
     @media (max-width: 1023px) {
       .nav-offset > main {
         min-height: auto !important;
@@ -361,108 +358,32 @@
     }
 
     /* ============================================================
-        TEAM & VISION SCROLL SECTION
+        TEAM & VISION SCROLL SECTION (SMOOTH HORIZONTAL SCROLL SLIDE)
         ============================================================ */
     .slide-card {
-      transition: opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      pointer-events: none;
       will-change: transform, opacity;
-    }
-    @media (min-width: 1024px) {
-      .slide-card { justify-content: flex-end; }
-    }
-
-    .slide-past { opacity: 0; transform: translateY(-30px) scale(0.92); }
-    .slide-active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; z-index: 20; }
-    .slide-future { opacity: 0; transform: translateY(30px) scale(0.92); }
-
-    .text-group {
-      transition: opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      opacity: 0;
       pointer-events: none;
-      will-change: transform, opacity;
     }
-
-    .text-past { opacity: 0; transform: translateY(-20px) scale(0.95); }
-    .text-active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; z-index: 20; }
-    .text-future { opacity: 0; transform: translateY(20px) scale(0.95); }
 
     .team-card-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.5rem;
       width: 100%;
       padding: 0 1rem;
     }
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       .team-card-inner {
         flex-direction: row;
         justify-content: center;
-        gap: 2.5rem;
-        padding: 0;
-      }
-    }
-
-    @media (max-width: 1023px) {
-      #scroll-container .max-w-7xl {
-        justify-content: flex-start !important;
-        padding-top: 100px !important;
-        gap: 0 !important;
-      }
-      #scroll-container .max-w-7xl > div:nth-child(1) {
-        height: 180px !important;
-      }
-      #scroll-container .max-w-7xl > div:nth-child(2) {
-        height: auto !important;
-        flex: 1 !important;
-        margin-top: 40px !important;
-      }
-      .slide-card {
-        align-items: flex-start !important;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .team-card-inner.team-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        column-gap: 20px !important;
-        row-gap: 32px !important;
-        width: 100% !important;
-        justify-content: center !important;
-        align-items: start !important;
-      }
-      .team-card-inner.team-grid .team-card-item {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-      }
-      .team-card-inner.team-grid > .team-card-item:last-child:nth-child(odd) {
-        grid-column: 1 / -1 !important;
-        justify-self: center !important;
-        width: calc(50% - 10px) !important;
-      }
-      .team-card-item .member-img-wrapper {
-        margin-bottom: 16px !important;
-      }
-      .team-card-item .team-card-name {
-        margin-top: 0 !important;
-        margin-bottom: 2px !important;
-      }
-      .team-card-item .team-card-role {
-        margin-top: 0 !important;
+        gap: 4rem;
+        padding: 0 2rem;
       }
     }
 
@@ -480,24 +401,10 @@
     }
     .member-img-wrapper:hover { transform: scale(1.02); }
     @media (min-width: 640px) {
-      .member-img-wrapper { width: 280px; height: 380px; }
+      .member-img-wrapper { width: 260px; height: 350px; }
     }
     @media (min-width: 1024px) {
-      .member-img-wrapper { width: 450px; height: 620px; }
-    }
-
-    @media (max-width: 480px) {
-      .team-card-inner .member-img-wrapper {
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 3/4 !important;
-        max-width: 260px !important;
-        margin: 0 auto 16px auto !important;
-      }
-      .team-card-inner .w-\[46\%\] .member-img-wrapper {
-        aspect-ratio: 4/5 !important;
-        max-width: 140px !important;
-      }
+      .member-img-wrapper { width: 340px; height: 480px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -585,7 +492,7 @@
   <!-- Click outside to close overlay -->
   <div id="nav-overlay" class="fixed inset-0 z-[999] hidden bg-black/40 backdrop-blur-sm transition-opacity duration-500 opacity-0"></div>
 
-  <!-- ===== ABOUT SECTION (Shifted slightly higher up) ===== -->
+  <!-- ===== ABOUT SECTION ===== -->
   <div class="nav-offset">
     <main class="min-h-[85vh] md:min-h-[90vh] flex flex-col justify-center py-0 md:py-4 max-w-[1600px] mx-auto -mt-2 md:-mt-6">
       <div class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-0 flex-grow mb-4 px-4 sm:px-8 md:px-12 lg:pl-24 lg:pr-0">
@@ -610,159 +517,155 @@
     </main>
   </div>
 
-  <!-- ===== VISION BEHIND SDS & FULL TEAM SECTION ===== -->
+  <!-- ===== VISION & ALL TEAM SLIDES (SMOOTH HORIZONTAL SCROLL SLIDE) ===== -->
   <div id="scroll-container" class="relative h-[500vh] sm:h-[420vh] lg:h-[420vh] w-full bg-[#fcfcfc]">
     <main class="sticky top-0 h-screen h-[100dvh] w-full flex items-center overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12 pt-16 lg:pt-0 pb-12 lg:pb-0">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full relative flex items-center justify-center">
 
-        <!-- LEFT COLUMN -->
-        <div class="w-full lg:w-[35%] relative h-[210px] sm:h-[250px] lg:h-[500px] flex items-center shrink-0">
-          <div id="text-group-0" class="text-group">
-
+        <!-- SLIDE 0: Founder (Santhosh S) -->
+        <div id="slide-0" class="slide-card">
+          <div class="team-card-inner">
+            <div class="member-img-wrapper !w-[220px] sm:!w-[300px] lg:!w-[420px] !h-[310px] sm:!h-[420px] lg:!h-[580px]">
+              <img alt="Founder sitting on a chair" class="w-full h-full object-cover object-center drop-shadow-xl" src="https://i.postimg.cc/QC2zsBdh/Founder-3x-3x.png"/>
             </div>
-            <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold tracking-tight mb-2 lg:mb-4 leading-none">
-              Santhosh S<span class="text-brand-blue">.</span>
-            </h1>
-            <h3 class="text-xs sm:text-sm lg:text-lg text-brand-blue font-medium mb-3 lg:mb-6">/ FOUNDER &amp; STRATEGIST
-            <p class="text-brand-gray mb-4 lg:mb-6 max-w-md leading-relaxed text-xs sm:text-sm lg:text-base">
-              I started SDS to help businesses uncover their true identity and turn it into brands that people remember and trust.
-            </p>
-            <div class="w-10 lg:w-20 h-1 bg-brand-blue mb-4 lg:mb-6"></div>
-          </div>
-
-          <div id="text-group-1" class="text-group">
-            <div class="mb-3 flex items-center justify-start">
-              <span class="text-blue-custom font-medium text-base sm:text-lg" id="counter-group-1">01</span>
-              <span class="text-gray-500 text-xs sm:text-sm tracking-widest ml-2 uppercase">/ TEAM</span>
-            </div>
-            <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4">
-              Social media<br/>team<span class="text-blue-custom">.</span>
-            </h1>
-            <div class="w-10 h-0.5 bg-blue-custom mb-4"></div>
-            <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed">
-              We plan, create and manage content that builds engagement and drives real results.
-            </p>
-          </div>
-
-          <div id="text-group-2" class="text-group">
-            <div class="mb-3 flex items-center justify-start">
-              <span class="text-blue-custom font-semibold text-base sm:text-lg tracking-wide" id="counter-group-2">02</span>
-              <span class="text-gray-400 text-xs sm:text-sm tracking-widest ml-3 uppercase font-medium">/ TEAM</span>
-            </div>
-            <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-4">
-              Creative<br/>team<span class="text-blue-custom">.</span>
-            </h1>
-            <div class="w-10 h-0.5 bg-blue-custom mb-4"></div>
-            <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed mb-6">
-              From design to editing, we turn ideas into visuals that connect, communicate and convert.
-            </p>
-            <div>
-              <div id="badge-group-2" class="inline-block px-3 py-1 rounded-md bg-blue-50 text-blue-custom font-semibold text-[10px] sm:text-xs tracking-wider uppercase">
-                Designers
+            <div class="flex flex-col text-left max-w-lg">
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-2 leading-none text-gray-900">
+                Santhosh S<span class="text-brand-blue">.</span>
+              </h1>
+              <div class="mb-4">
+                <span class="text-brand-blue font-semibold text-xs sm:text-sm tracking-widest uppercase">/ FOUNDER &amp; STRATEGIST</span>
               </div>
+              <p class="text-brand-gray leading-relaxed text-sm sm:text-base">
+                Building brands that turn what businesses do best into clarity, trust, and lasting value.
+              </p>
             </div>
-          </div>
-
-          <div id="text-group-3" class="text-group">
-            <div class="mb-3 flex items-center justify-start">
-              <span class="text-blue-custom font-medium text-base sm:text-lg" id="counter-group-3">03</span>
-              <span class="text-gray-500 text-xs sm:text-sm tracking-widest ml-2 uppercase">/ PRODUCTION</span>
-            </div>
-            <h1 class="text-2xl sm:text-4xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4">
-              Production<br/>team<span class="text-blue-custom">.</span>
-            </h1>
-            <div class="w-10 h-0.5 bg-blue-custom mb-4"></div>
-            <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed">
-              We bring stories to life with cinematic precision, creative vision, and striking visual execution.
-            </p>
           </div>
         </div>
 
-        <!-- RIGHT COLUMN (GROUPED TEAM MEMBERS) -->
-        <div class="w-full lg:w-[65%] relative h-[40vh] sm:h-[550px] lg:h-[850px] flex items-center justify-center shrink-0">
-          <!-- SLIDE 0: Founder -->
-          <div id="slide-0" class="slide-card">
-            <div class="team-card-inner !justify-center">
-              <div class="member-img-wrapper !w-[220px] sm:!w-[320px] lg:!w-[520px] !h-[310px] sm:!h-[430px] lg:!h-[710px]">
-                <img alt="Founder sitting on a chair" class="w-full h-full object-cover object-center drop-shadow-xl" src="https://i.postimg.cc/QC2zsBdh/Founder-3x-3x.png"/>
-              </div>
-            </div>
-          </div>
-
-          <!-- SLIDE 1: Social Media Team -->
-          <div id="slide-1" class="slide-card">
-            <div class="team-card-inner team-grid !flex-row !gap-3 sm:!gap-8 justify-center">
-              <div class="flex flex-col items-center team-card-item">
-                <div class="member-img-wrapper !w-[130px] sm:!w-[220px] lg:!w-[240px] !h-[180px] sm:!h-[320px] lg:!h-[360px]">
+        <!-- SLIDE 1: Social Media Team -->
+        <div id="slide-1" class="slide-card">
+          <div class="team-card-inner">
+            <div class="flex gap-4">
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
                   <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Arjun Raj" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="team-card-name text-xs sm:text-lg font-bold text-gray-900 mt-2">Arjun Raj</h3>
-                <p class="team-card-role text-blue-custom text-[9px] sm:text-xs uppercase tracking-wider font-semibold">Project Manager</p>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Arjun Raj</h3>
+                <p class="text-blue-custom text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Project Manager</p>
               </div>
-              <div class="flex flex-col items-center team-card-item">
-                <div class="member-img-wrapper !w-[130px] sm:!w-[220px] lg:!w-[240px] !h-[180px] sm:!h-[320px] lg:!h-[360px]">
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
                   <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Keerthana R" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="team-card-name text-xs sm:text-lg font-bold text-gray-900 mt-2">Keerthana R</h3>
-                <p class="team-card-role text-blue-custom text-[9px] sm:text-xs uppercase tracking-wider font-semibold">Social Media Manager</p>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Keerthana R</h3>
+                <p class="text-blue-custom text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Social Media Manager</p>
               </div>
             </div>
+            <div class="flex flex-col text-left max-w-lg">
+              <div class="mb-3 flex items-center justify-start">
+                <span class="text-blue-custom font-medium text-base sm:text-lg">01</span>
+                <span class="text-gray-500 text-xs sm:text-sm tracking-widest ml-2 uppercase">/ TEAM</span>
+              </div>
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-4 text-gray-900">
+                Social media<br/>team<span class="text-blue-custom">.</span>
+              </h1>
+              <div class="w-10 h-0.5 bg-blue-custom mb-4"></div>
+              <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed">
+                We plan, create and manage content that builds engagement and drives real results.
+              </p>
+            </div>
           </div>
+        </div>
 
-          <!-- SLIDE 2: Creative Team -->
-          <div id="slide-2" class="slide-card">
-            <div class="team-card-inner team-grid !flex-row !flex-wrap !gap-3 sm:!gap-6 justify-center items-center max-w-[560px] mx-auto">
-              <div class="flex flex-col items-center w-[46%] sm:w-[46%] team-card-item">
-                <div class="member-img-wrapper !w-[105px] sm:!w-[150px] lg:!w-[190px] !h-[130px] sm:!h-[190px] lg:!h-[230px]">
+        <!-- SLIDE 2: Creative Team -->
+        <div id="slide-2" class="slide-card">
+          <div class="team-card-inner">
+            <div class="grid grid-cols-2 gap-3 max-w-[420px]">
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
                   <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Vasanth V" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="team-card-name text-[11px] sm:text-sm font-bold text-gray-900 mt-1.5">Vasanth V</h3>
-                <p class="team-card-role text-blue-custom text-[8px] sm:text-[11px] uppercase tracking-wider font-semibold">Graphic Designer</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Vasanth V</h3>
+                <p class="text-blue-custom text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Graphic Designer</p>
               </div>
-              <div class="flex flex-col items-center w-[46%] sm:w-[46%] team-card-item">
-                <div class="member-img-wrapper !w-[105px] sm:!w-[150px] lg:!w-[190px] !h-[130px] sm:!h-[190px] lg:!h-[230px]">
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
                   <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Praveen P" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="team-card-name text-[11px] sm:text-sm font-bold text-gray-900 mt-1.5">Praveen P</h3>
-                <p class="team-card-role text-blue-custom text-[8px] sm:text-[11px] uppercase tracking-wider font-semibold">UI/UX Designer</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Praveen P</h3>
+                <p class="text-blue-custom text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">UI/UX Designer</p>
               </div>
-              <div class="flex flex-col items-center w-[46%] sm:w-[46%] team-card-item">
-                <div class="member-img-wrapper !w-[105px] sm:!w-[150px] lg:!w-[190px] !h-[130px] sm:!h-[190px] lg:!h-[230px]">
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
                   <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80" alt="Vignesh S" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="team-card-name text-[11px] sm:text-sm font-bold text-gray-900 mt-1.5">Vignesh S</h3>
-                <p class="team-card-role text-blue-custom text-[8px] sm:text-[11px] uppercase tracking-wider font-semibold">Video Editor</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Vignesh S</h3>
+                <p class="text-blue-custom text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor</p>
               </div>
-              <div class="flex flex-col items-center w-[46%] sm:w-[46%] team-card-item">
-                <div class="member-img-wrapper !w-[105px] sm:!w-[150px] lg:!w-[190px] !h-[130px] sm:!h-[190px] lg:!h-[230px]">
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
                   <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Logesh K" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="team-card-name text-[11px] sm:text-sm font-bold text-gray-900 mt-1.5">Logesh K</h3>
-                <p class="team-card-role text-blue-custom text-[8px] sm:text-[11px] uppercase tracking-wider font-semibold">Video Editor</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Logesh K</h3>
+                <p class="text-blue-custom text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor</p>
               </div>
             </div>
-          </div>
-
-          <!-- SLIDE 3: Production Team -->
-          <div id="slide-3" class="slide-card">
-            <div class="team-card-inner team-grid !flex-row !gap-3 sm:!gap-8 justify-center">
-              <div class="flex flex-col items-center team-card-item">
-                <div class="member-img-wrapper !w-[130px] sm:!w-[220px] lg:!w-[240px] !h-[180px] sm:!h-[320px] lg:!h-[360px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Dinesh K" class="w-full h-full object-cover object-center"/>
-                </div>
-                <h3 class="team-card-name text-xs sm:text-lg font-bold text-gray-900 mt-2">Dinesh K</h3>
-                <p class="team-card-role text-blue-custom text-[9px] sm:text-xs uppercase tracking-wider font-semibold">Cinematographer</p>
+            <div class="flex flex-col text-left max-w-lg">
+              <div class="mb-3 flex items-center justify-start">
+                <span class="text-blue-custom font-semibold text-base sm:text-lg">02</span>
+                <span class="text-gray-400 text-xs sm:text-sm tracking-widest ml-3 uppercase font-medium">/ TEAM</span>
               </div>
-              <div class="flex flex-col items-center team-card-item">
-                <div class="member-img-wrapper !w-[130px] sm:!w-[220px] lg:!w-[240px] !h-[180px] sm:!h-[320px] lg:!h-[360px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Siva Prakash" class="w-full h-full object-cover object-center"/>
-                </div>
-                <h3 class="team-card-name text-xs sm:text-lg font-bold text-gray-900 mt-2">Siva Prakash</h3>
-                <p class="team-card-role text-blue-custom text-[9px] sm:text-xs uppercase tracking-wider font-semibold">Creative Director</p>
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-tight mb-4 text-gray-900">
+                Creative<br/>team<span class="text-blue-custom">.</span>
+              </h1>
+              <div class="w-10 h-0.5 bg-blue-custom mb-4"></div>
+              <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed mb-6">
+                From design to editing, we turn ideas into visuals that connect, communicate and convert.
+              </p>
+              <div>
+                <span class="inline-block px-3 py-1 rounded-md bg-blue-50 text-blue-custom font-semibold text-[10px] sm:text-xs tracking-wider uppercase">
+                  Designers
+                </span>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- SLIDE 3: Production Team -->
+        <div id="slide-3" class="slide-card">
+          <div class="team-card-inner">
+            <div class="flex gap-4">
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
+                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Dinesh K" class="w-full h-full object-cover object-center"/>
+                </div>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Dinesh K</h3>
+                <p class="text-blue-custom text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Cinematographer</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
+                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Siva Prakash" class="w-full h-full object-cover object-center"/>
+                </div>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Siva Prakash</h3>
+                <p class="text-blue-custom text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Creative Director</p>
+              </div>
+            </div>
+            <div class="flex flex-col text-left max-w-lg">
+              <div class="mb-3 flex items-center justify-start">
+                <span class="text-blue-custom font-medium text-base sm:text-lg">03</span>
+                <span class="text-gray-500 text-xs sm:text-sm tracking-widest ml-2 uppercase">/ PRODUCTION</span>
+              </div>
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-4 text-gray-900">
+                Production<br/>team<span class="text-blue-custom">.</span>
+              </h1>
+              <div class="w-10 h-0.5 bg-blue-custom mb-4"></div>
+              <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed">
+                We bring stories to life with cinematic precision, creative vision, and striking visual execution.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </main>
   </div>
@@ -1192,81 +1095,39 @@
       renderNavLinks();
     })();
 
-    // ---------- TEAM & VISION SCROLL SECTION LOGIC (4 GROUPED SLIDES) ----------
+    // ---------- TEAM & VISION SCROLL SECTION LOGIC (CONTINUOUS HORIZONTAL SLIDE) ----------
     document.addEventListener("DOMContentLoaded", () => {
-      const totalSlides = 4;
-      let currentIndex = -1;
+      const slides = document.querySelectorAll('.slide-card');
+      const totalSlides = slides.length;
       const container = document.getElementById('scroll-container');
       if (!container) return;
 
-      const slideConfig = [
-        { group: 0 }, 
-        { group: 1, counter: '01' }, 
-        { group: 2, counter: '02', badge: 'Designers' }, 
-        { group: 3, counter: '03' }  
-      ];
-
-      function updateTeamUI(targetIndex) {
-        if (targetIndex === currentIndex) return;
-        currentIndex = targetIndex;
-
-        for (let i = 0; i < totalSlides; i++) {
-          const slide = document.getElementById(`slide-${i}`);
-          if (!slide) continue;
-
-          slide.classList.remove('slide-past', 'slide-active', 'slide-future');
-
-          if (i < targetIndex) {
-            slide.classList.add('slide-past');
-          } else if (i === targetIndex) {
-            slide.classList.add('slide-active');
-          } else {
-            slide.classList.add('slide-future');
-          }
-        }
-
-        const config = slideConfig[targetIndex];
-
-        for (let g = 0; g <= 3; g++) {
-          const groupEl = document.getElementById(`text-group-${g}`);
-          if (!groupEl) continue;
-
-          groupEl.classList.remove('text-past', 'text-active', 'text-future');
-
-          if (g < config.group) {
-            groupEl.classList.add('text-past');
-          } else if (g === config.group) {
-            groupEl.classList.add('text-active');
-          } else {
-            groupEl.classList.add('text-future');
-          }
-        }
-
-        if (config.counter) {
-          const counterEl = document.getElementById(`counter-group-${config.group}`);
-          if (counterEl) counterEl.innerText = config.counter;
-        }
-
-        if (config.badge) {
-          const badgeEl = document.getElementById(`badge-group-${config.group}`);
-          if (badgeEl) badgeEl.innerText = config.badge;
-        }
-     }
-
-      window.addEventListener('scroll', () => {
+      function updateTeamSlides() {
         const rect = container.getBoundingClientRect();
         const scrollableDistance = rect.height - window.innerHeight;
 
         let progress = -rect.top / scrollableDistance;
         progress = Math.max(0, Math.min(1, progress));
 
-        let activeIndex = Math.floor(progress * totalSlides);
-        if (activeIndex >= totalSlides) activeIndex = totalSlides - 1;
+        const floatIndex = progress * (totalSlides - 1);
 
-        updateTeamUI(activeIndex);
-      }, { passive: true });
+        slides.forEach((slide, i) => {
+          const distance = i - floatIndex;
+          const translateX = distance * 100; // percent sliding left/right smoothly
+          
+          let opacity = 1 - Math.abs(distance);
+          opacity = Math.max(0, Math.min(1, opacity));
+          opacity = Math.pow(opacity, 1.4); // smoother fade curve
 
-      updateTeamUI(0);
+          slide.style.transform = `translateX(${translateX}%)`;
+          slide.style.opacity = opacity;
+          slide.style.pointerEvents = Math.abs(distance) < 0.5 ? 'auto' : 'none';
+          slide.style.zIndex = Math.round(10 - Math.abs(distance) * 10);
+        });
+      }
+
+      window.addEventListener('scroll', updateTeamSlides, { passive: true });
+      updateTeamSlides();
 
       // ---------- BACK TO TOP FUNCTIONALITY ----------
       const backToTopBtn = document.getElementById('back-to-top-btn');
