@@ -187,7 +187,7 @@
     /* PC Desktop Adjustments for Hero Logo & Spacing */
     @media (min-width: 1024px) {
       .card-hero .card-right {
-        align-items: center !important; /* Centers logo between text boundary and right margin */
+        align-items: center !important;
       }
       .hero-logo-outer {
         width: 330px !important;
@@ -685,10 +685,10 @@
 
         <!-- RIGHT COLUMN (GROUPED TEAM MEMBERS) -->
         <div class="w-full lg:w-[65%] relative h-[40vh] sm:h-[550px] lg:h-[850px] flex items-center justify-center shrink-0">
-          <!-- SLIDE 0: Founder -->
+          <!-- SLIDE 0: Founder (Slightly larger size applied here) -->
           <div id="slide-0" class="slide-card">
             <div class="team-card-inner !justify-center">
-              <div class="member-img-wrapper">
+              <div class="member-img-wrapper !w-[220px] sm:!w-[320px] lg:!w-[520px] !h-[310px] sm:!h-[430px] lg:!h-[710px]">
                 <img alt="Founder sitting on a chair" class="w-full h-full object-cover object-center drop-shadow-xl" src="https://i.postimg.cc/QC2zsBdh/Founder-3x-3x.png"/>
               </div>
             </div>
@@ -1109,13 +1109,13 @@
             <a
               href="${item.href}"
               class="relative group text-sm sm:text-base font-medium transition-colors duration-300 focus:outline-none whitespace-nowrap py-2 px-1 no-underline"
-          >
-            <span class="transition-colors duration-300 ${textColorClass}">
+            >
+              <span class="transition-colors duration-300 ${textColorClass}">
                 ${item.label}
-            </span>
-            <span class="active-dot ${dotStateClass} absolute -bottom-1 left-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-lg"></span>
-          </a>
-        `;
+              </span>
+              <span class="active-dot ${dotStateClass} absolute -bottom-1 left-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-lg"></span>
+            </a>
+          `;
           navLinksWrapper.insertAdjacentHTML('beforeend', linkHTML);
         });
       }
