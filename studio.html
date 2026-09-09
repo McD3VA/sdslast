@@ -400,9 +400,8 @@
       align-items: center;
       justify-content: center;
       background-color: transparent;
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .member-img-wrapper:hover { transform: scale(1.02); }
+    
     @media (min-width: 640px) {
       .member-img-wrapper { width: 260px; height: 350px; }
     }
@@ -463,20 +462,16 @@
 
   <!-- DYNAMIC COLLAPSIBLE NAVIGATION (TOP LEFT) -->
   <div id="nav-container" class="smooth-transition fixed top-3 left-3 sm:top-6 sm:left-6 z-[1000] flex items-center bg-black/70 backdrop-blur-xl border border-white/15 shadow-2xl rounded-full p-2 max-w-[94vw]">
-      <!-- Logo Container -->
       <div id="logo-container-wrap" class="z-10 shrink-0 relative flex items-center justify-center h-9 w-9 sm:h-12 sm:w-12 overflow-hidden rounded-full border border-white/10 bg-white/5 cursor-pointer p-1.5" onclick="window.location.href='index.html'">
           <img id="logo-collapsed" src="https://i.postimg.cc/K892XdFR/sds-white-logo-01-(1).png" alt="Collapsed Logo" class="absolute inset-0 w-full h-full object-cover smooth-transition opacity-100 scale-100 p-1" />
           <img id="logo-expanded" src="https://i.postimg.cc/JnjLHGwc/Untitled-design-(63).png" alt="Expanded Logo" class="absolute inset-0 w-full h-full object-contain smooth-transition opacity-0 scale-95 pointer-events-none p-0.5" />
       </div>
 
-      <!-- Navigation Items Wrapper -->
       <div id="nav-wrapper" class="smooth-transition flex items-center overflow-x-auto scrollbar-hide max-w-0 opacity-0 px-0">
           <nav class="flex items-center w-max justify-between gap-3 sm:gap-6 pr-2" id="nav-links-wrapper">
-              <!-- Links injected by JS -->
           </nav>
       </div>
 
-      <!-- Right side actions -->
       <div class="z-10 flex items-center shrink-0">
           <div id="divider" class="smooth-transition h-5 sm:h-6 w-px bg-white/20 mx-0 scale-y-0 opacity-0"></div>
           <button id="toggle-btn" class="text-white hover:text-gray-300 transition-colors focus:outline-none p-2.5 sm:p-3 rounded-full hover:bg-white/10 active:scale-95 duration-200 shrink-0 ml-1" aria-label="Open menu">
@@ -492,7 +487,6 @@
       </div>
   </div>
 
-  <!-- Click outside to close overlay -->
   <div id="nav-overlay" class="fixed inset-0 z-[999] hidden bg-black/40 backdrop-blur-sm transition-opacity duration-500 opacity-0"></div>
 
   <!-- ===== ABOUT SECTION ===== -->
@@ -535,8 +529,8 @@
               <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-2 leading-none text-gray-900">
                 Santhosh S<span class="gradient-text">.</span>
               </h1>
-              <div class="mb-4">
-                <span class="gradient-text font-semibold text-xs sm:text-sm tracking-widest uppercase">/ FOUNDER &amp; STRATEGIST</span>
+              <div class="mb-4 overflow-hidden flex items-center">
+                <span class="gradient-text font-semibold text-xs sm:text-sm tracking-widest uppercase inline-block founder-role-reveal">FOUNDER &amp; STRATEGIST</span>
               </div>
               <p class="text-brand-gray leading-relaxed text-sm sm:text-base">
                 Building brands that turn what businesses do best into clarity, trust, and lasting value.
@@ -551,14 +545,14 @@
             <div class="flex gap-4">
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Arjun Raj" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/Nf2GjpBB/image.png" alt="Arjun Raj" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Arjun Raj</h3>
                 <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Project Manager</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Keerthana R" class="w-full h-full object-cover object-center"/>
+                  <img src=https://i.postimg.cc/4xzJzyKX/image.png" alt="Keerthana R" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Keerthana R</h3>
                 <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Social Media Manager</p>
@@ -586,28 +580,28 @@
             <div class="grid grid-cols-2 gap-3 max-w-[420px]">
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Vasanth V" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/yNZ0hFF2/image.png" alt="Vasanth V" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Vasanth V</h3>
                 <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Graphic Designer</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Praveen P" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/GpFHhzPm/image.png" alt="Praveen P" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Praveen P</h3>
                 <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">UI/UX Designer</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80" alt="Vignesh S" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/GpFHhzPm/image.png" alt="Vignesh S" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Vignesh S</h3>
                 <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Logesh K" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/yNZ0hFF2/image.png" alt="Logesh K" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Logesh K</h3>
                 <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor</p>
@@ -640,14 +634,14 @@
             <div class="flex gap-4">
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Dinesh K" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/5yRtkr1N/image.png" alt="Dinesh K" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Dinesh K</h3>
                 <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Cinematographer</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-the-business-man-transparent-background-png-image_10309695.png" alt="Siva Prakash" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/nLGhtrZW/image.png" alt="Siva Prakash" class="w-full h-full object-cover object-center"/>
                 </div>
                 <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Siva Prakash</h3>
                 <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Creative Director</p>
@@ -833,7 +827,7 @@
       </p>
       
       <div class="inline-block group">
-        <a class="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-br from-[#0c1334] via-[#152259] to-[#27397f] hover:brightness-110 text-white text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase rounded-full transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-xl shadow-[#0c1334]/20" data-purpose="cta-button" href="connect.html">
+        <a class="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#0c1334] via-[#27397f] to-[#5ea7db] hover:brightness-110 text-white text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase rounded-full transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-xl shadow-[#0c1334]/20" data-purpose="cta-button" href="connect.html">
           Start a Conversation
           <svg class="w-4 h-4 ml-2.5 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
@@ -1116,7 +1110,7 @@
 
         slides.forEach((slide, i) => {
           const distance = i - floatIndex;
-          const translateX = distance * 100; // smooth horizontal slide left/right
+          const translateX = distance * 100; // base slide horizontal translation
           
           let opacity = 1 - Math.abs(distance);
           opacity = Math.max(0, Math.min(1, opacity));
@@ -1126,6 +1120,36 @@
           slide.style.opacity = opacity;
           slide.style.pointerEvents = Math.abs(distance) < 0.5 ? 'auto' : 'none';
           slide.style.zIndex = Math.round(10 - Math.abs(distance) * 10);
+
+          // === INTRA-SLIDE VERTICAL RISE-UP / REVEAL ANIMATIONS ===
+          const absDist = Math.abs(distance);
+          const easeDist = Math.pow(absDist, 1.2); 
+
+          // 1. Staggered image vertical rise reveal
+          const images = slide.querySelectorAll('.member-img-wrapper');
+          images.forEach((img, idx) => {
+            const stagger = 1 + (idx * 0.2); 
+            const yOffset = easeDist * 130 * stagger; 
+            const scale = 1 - (easeDist * 0.05); 
+            img.style.transform = `translateY(${yOffset}px) scale(${scale})`;
+          });
+
+          // 2. Team member names & roles vertical rise reveal
+          const memberTexts = slide.querySelectorAll('.flex-col.items-center > h3, .flex-col.items-center > p');
+          memberTexts.forEach((txt, idx) => {
+            const yOffset = easeDist * 80;
+            txt.style.transform = `translateY(${yOffset}px)`;
+            txt.style.opacity = Math.max(0, 1 - (absDist * 1.8)); 
+          });
+
+          // 3. Right-side text content vertical stagger rise reveal
+          const textBlocks = slide.querySelectorAll('.text-left > *');
+          textBlocks.forEach((el, idx) => {
+            const stagger = 1 + (idx * 0.15);
+            const yOffset = easeDist * 100 * stagger; 
+            el.style.transform = `translateY(${yOffset}px)`;
+            el.style.opacity = Math.max(0, 1 - (absDist * 1.5));
+          });
         });
       }
 
@@ -1150,7 +1174,7 @@
       gsap.fromTo(".hero-video-wrapper",
         { x: 80, opacity: 0, scale: 0.92 },
         { x: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" }
-     );
+      );
 
       // General scroll reveal elements (excluding footer)
       gsap.utils.toArray('.scroll-reveal').forEach(el => {
@@ -1169,7 +1193,23 @@
             }
           }
         );
-     });
+      });
+
+      // Custom Clipping Reveal Animation specifically for the Founder Role Title
+      gsap.fromTo(".founder-role-reveal",
+        { y: "110%", opacity: 0 },
+        {
+          y: "0%",
+          opacity: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: "#scroll-container",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
     });
   </script>
 </body>
