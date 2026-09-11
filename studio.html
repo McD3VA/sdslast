@@ -15,6 +15,8 @@
         extend: {
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+            aeonik: ['"Aeonik Pro"', 'sans-serif'],
+            playfair: ['"Playfair Display"', 'serif'],
           },
           colors: {
             brand: {
@@ -30,10 +32,10 @@
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&f[]=neue-montreal@300,400&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=neue-montreal@300,400&display=swap" rel="stylesheet" />
+  <!-- Aeonik Pro Font Import -->
+  <link href="https://fonts.cdnfonts.com/css/aeonik" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- Lucide Icons for Navigation Toggle -->
@@ -62,7 +64,20 @@
 
     /* ---------- GRADIENT TEXT UTILITY ---------- */
     .gradient-text {
-      background: linear-gradient(to right, #0c1334, #27397f, #5ea7db);
+      background: linear-gradient(135deg, #0c1334 0%, #27397f 50%, #5ea7db 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ---------- PLAYFAIR DISPLAY REPLACED UTILITY ---------- */
+    .playfair-replaced {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      text-transform: capitalize;
+      background: linear-gradient(135deg, #0c1334 0%, #27397f 50%, #5ea7db 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -130,14 +145,14 @@
     .card-dark .logo-bottom img { filter: invert(1) !important; opacity: 0.85; }
 
     .card-bar { padding: clamp(0.8rem, 2vw, 1.6rem) clamp(1rem, 4vw, 4rem); flex-shrink: 0; width: 100%; }
-    .card-bar-text { font-family: 'Satoshi', sans-serif; font-weight: 500; font-size: clamp(0.85rem, 2.2vw, 2.8rem); letter-spacing: -0.02em; }
+    .card-bar-text { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: clamp(0.85rem, 2.2vw, 2.8rem); letter-spacing: -0.02em; }
     .card-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 4vw, 4rem); padding: clamp(1.2rem, 4vw, 3.5rem) clamp(1rem, 4vw, 4rem); align-items: stretch; position: relative; z-index: 3; min-height: 0; }
     .card-left { display: flex; flex-direction: column; justify-content: flex-start; gap: 0.4rem; padding-top: 0.4rem; }
-    .card-num { font-family: 'Satoshi', sans-serif; font-weight: 500; font-size: clamp(0.8rem, 1.1vw, 1.2rem); letter-spacing: 1.4px; margin-bottom: 0.2rem; }
-    .card-chapter { font-family: 'Satoshi', sans-serif; font-weight: 700; font-size: clamp(1.4rem, 3.5vw, 3.8rem); letter-spacing: -0.03em; line-height: 1.1; word-break: break-word; }
+    .card-num { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: clamp(0.8rem, 1.1vw, 1.2rem); letter-spacing: 1.4px; margin-bottom: 0.2rem; }
+    .card-chapter { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: clamp(1.4rem, 3.5vw, 3.8rem); letter-spacing: -0.02em; line-height: 0.95; word-break: break-word; }
     .card-right { display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding-top: 0.6rem; }
     .card-desc { font-family: 'Neue Montreal', sans-serif; font-weight: 300; font-size: clamp(0.85rem, 1.2vw, 1.3rem); line-height: 1.7; letter-spacing: 0.02em; max-width: 38rem; }
-    .bg-year { position: absolute; bottom: -1.2rem; left: -1.6rem; font-family: 'Satoshi', sans-serif; font-weight: 700; font-size: clamp(6rem, 36vw, 34rem); line-height: 1; letter-spacing: -0.04em; pointer-events: none; user-select: none; z-index: 1; white-space: nowrap; }
+    .bg-year { position: absolute; bottom: -1.2rem; left: -1.6rem; font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: clamp(6rem, 36vw, 34rem); line-height: 1; letter-spacing: -0.04em; pointer-events: none; user-select: none; z-index: 1; white-space: nowrap; }
     .logo-bottom { position: absolute; bottom: clamp(1rem, 3vw, 2.8rem); left: clamp(1rem, 3.5vw, 3.6rem); z-index: 10; display: flex; align-items: center; }
     .logo-bottom img { height: clamp(2rem, 4.2vw, 4.2rem); width: auto; display: block; }
 
@@ -148,9 +163,9 @@
     .card-hero .card-body { flex: 1; padding: clamp(1rem, 4vw, 4rem) clamp(1rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 4vw, 4rem); align-items: center; }
     .card-hero .card-left { padding-top: 0; height: 100%; justify-content: center; }
     .card-hero .card-num { display: none; }
-    .card-hero .card-chapter { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6.5vw, 8.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; color: #000000; margin-bottom: 1rem; }
-    .card-hero .card-chapter .sds { font-weight: 600; }
-    .card-hero .card-chapter .story { font-weight: 400; }
+    .card-hero .card-chapter { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: clamp(2.2rem, 6.5vw, 8.5rem); line-height: 0.95; letter-spacing: -0.02em; color: #000000; margin-bottom: 1rem; }
+    .card-hero .card-chapter .sds { font-weight: 500; background: linear-gradient(135deg, #0c1334 0%, #27397f 50%, #5ea7db 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card-hero .card-chapter .story { font-weight: 500; }
     .card-hero .card-right { display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding-top: 0; }
     .hero-accent { display: flex; gap: 1rem; align-items: stretch; margin-bottom: 0; }
     .hero-black-line { width: 3px; background: #000000; flex-shrink: 0; border-radius: 2px; min-height: 80px; }
@@ -338,9 +353,12 @@
     body.pin-lock { overflow: hidden !important; }
 
     /* ----- FOOTER STYLES ----- */
-    .hero-sans { font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: -0.03em; font-size: clamp(0.85rem, 3vw, 4.2rem); }
-    .hero-serif { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; letter-spacing: -0.02em; font-size: clamp(0.95rem, 3.2vw, 4.6rem); }
-    .hero-line { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0.25em; width: 100%; text-align: center; }
+    .footer-gradient {
+        background: linear-gradient(135deg, #0C1334 0%, #27397f 100%);
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
 
     /* ============================================================
         DYNAMIC COLLAPSIBLE NAVIGATION (TOP LEFT)
@@ -530,98 +548,98 @@
                 Santhosh S<span class="gradient-text">.</span>
               </h1>
               <div class="mb-4 overflow-hidden flex items-center">
-                <span class="gradient-text font-semibold text-xs sm:text-sm tracking-widest uppercase inline-block founder-role-reveal">FOUNDER &amp; STRATEGIST</span>
+                <span class="gradient-text font-semibold text-xs sm:text-sm tracking-widest uppercase inline-block founder-role-reveal">FOUNDER</span>
               </div>
               <p class="text-brand-gray leading-relaxed text-sm sm:text-base">
-                Building brands that turn what businesses do best into clarity, trust, and lasting value.
+                Never settles for average. Building brands that turn what businesses do best into clarity, trust, and lasting value.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- SLIDE 1: Social Media Team -->
+        <!-- SLIDE 1: Brand & Social Media Team -->
         <div id="slide-1" class="slide-card">
           <div class="team-card-inner">
             <div class="flex gap-4">
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src="https://i.postimg.cc/Nf2GjpBB/image.png" alt="Arjun Raj" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/rpxntPc3/GK-(1).png" alt="Gowshik Kumar" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Arjun Raj</h3>
-                <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Project Manager</p>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Gowshik Kumar</h3>
+                <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Brand Manager</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src=https://i.postimg.cc/4xzJzyKX/image.png" alt="Keerthana R" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/4xzJzyKX/image.png" alt="Hirthik" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Keerthana R</h3>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Hirthik</h3>
                 <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Social Media Manager</p>
               </div>
             </div>
             <div class="flex flex-col text-left max-w-lg">
               <div class="mb-3 flex items-center justify-start">
                 <span class="gradient-text font-medium text-base sm:text-lg">01</span>
-                <span class="text-gray-500 text-xs sm:text-sm tracking-widest ml-2 uppercase">/ TEAM</span>
+                <span class="text-gray-500 text-xs sm:text-sm tracking-widest ml-2 uppercase">/ BRAND & SOCIAL</span>
               </div>
               <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-4 text-gray-900">
-                Social media<br/>team<span class="gradient-text">.</span>
+                Brand & Social<br/>team<span class="gradient-text">.</span>
               </h1>
               <div class="w-10 h-0.5 bg-[#27397f] mb-4"></div>
               <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed">
-                We plan, create and manage content that builds engagement and drives real results.
+                Guarding the brand holy book while making sure scrolling is officially part of the job.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- SLIDE 2: Creative Team -->
+        <!-- SLIDE 2: Creative & Video Editing Team -->
         <div id="slide-2" class="slide-card">
           <div class="team-card-inner">
             <div class="grid grid-cols-2 gap-3 max-w-[420px]">
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://i.postimg.cc/yNZ0hFF2/image.png" alt="Vasanth V" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/yNZ0hFF2/image.png" alt="Kasi" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Vasanth V</h3>
-                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Graphic Designer</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Kasi</h3>
+                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Head of Video Editing</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://i.postimg.cc/GpFHhzPm/image.png" alt="Praveen P" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/GpFHhzPm/image.png" alt="Gopi" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Praveen P</h3>
-                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">UI/UX Designer</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Gopi</h3>
+                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor 1</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://i.postimg.cc/GpFHhzPm/image.png" alt="Vignesh S" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/GpFHhzPm/image.png" alt="Taufia Zayan" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Vignesh S</h3>
-                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Taufia Zayan</h3>
+                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor 2</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[100px] sm:!w-[130px] lg:!w-[160px] !h-[130px] sm:!h-[160px] lg:!h-[200px]">
-                  <img src="https://i.postimg.cc/yNZ0hFF2/image.png" alt="Logesh K" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/yNZ0hFF2/image.png" alt="Madhan Kumar" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Logesh K</h3>
-                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Video Editor</p>
+                <h3 class="text-[11px] sm:text-sm font-bold text-gray-900 mt-1">Madhan Kumar</h3>
+                <p class="gradient-text text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">Graphics Designer</p>
               </div>
             </div>
             <div class="flex flex-col text-left max-w-lg">
               <div class="mb-3 flex items-center justify-start">
                 <span class="gradient-text font-semibold text-base sm:text-lg">02</span>
-                <span class="text-gray-400 text-xs sm:text-sm tracking-widest ml-3 uppercase font-medium">/ TEAM</span>
+                <span class="text-gray-400 text-xs sm:text-sm tracking-widest ml-3 uppercase font-medium">/ CREATIVE</span>
               </div>
               <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-tight mb-4 text-gray-900">
-                Creative<br/>team<span class="gradient-text">.</span>
+                Editing & Design<br/>team<span class="gradient-text">.</span>
               </h1>
               <div class="w-10 h-0.5 bg-[#27397f] mb-4"></div>
               <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed mb-6">
-                From design to editing, we turn ideas into visuals that connect, communicate and convert.
+                Professionally allergic to unnecessary cuts, balancing life choices with calm revisions and designs done right.
               </p>
               <div>
                 <span class="inline-block px-3 py-1 rounded-md bg-blue-50 gradient-text font-semibold text-[10px] sm:text-xs tracking-wider uppercase">
-                  Designers
+                  Editors & Designers
                 </span>
               </div>
             </div>
@@ -634,17 +652,17 @@
             <div class="flex gap-4">
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src="https://i.postimg.cc/5yRtkr1N/image.png" alt="Dinesh K" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/nLGhtrZW/image.png" alt="Karthi Deivam" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Dinesh K</h3>
-                <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Cinematographer</p>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Karthi Deivam</h3>
+                <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Creative Director</p>
               </div>
               <div class="flex flex-col items-center">
                 <div class="member-img-wrapper !w-[130px] sm:!w-[190px] lg:!w-[230px] !h-[170px] sm:!h-[260px] lg:!h-[320px]">
-                  <img src="https://i.postimg.cc/nLGhtrZW/image.png" alt="Siva Prakash" class="w-full h-full object-cover object-center"/>
+                  <img src="https://i.postimg.cc/5yRtkr1N/image.png" alt="Suriya" class="w-full h-full object-cover object-center"/>
                 </div>
-                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Siva Prakash</h3>
-                <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">Creative Director</p>
+                <h3 class="text-xs sm:text-sm font-bold text-gray-900 mt-2">Suriya</h3>
+                <p class="gradient-text text-[8px] sm:text-xs uppercase tracking-wider font-semibold">DOP</p>
               </div>
             </div>
             <div class="flex flex-col text-left max-w-lg">
@@ -657,7 +675,7 @@
               </h1>
               <div class="w-10 h-0.5 bg-[#27397f] mb-4"></div>
               <p class="text-gray-700 text-xs sm:text-base md:text-lg leading-relaxed">
-                We bring stories to life with cinematic precision, creative vision, and striking visual execution.
+                For us, “what if” always means “let’s actually do it.” Cinematic execution with absolute precision.
               </p>
             </div>
           </div>
@@ -850,54 +868,45 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="w-full bg-gradient-to-br from-[#0c1334] via-[#152259] to-[#27397f] text-white pt-12 md:pt-16 pb-10 md:pb-12 px-5 sm:px-8 md:px-12 lg:px-20 border-t border-white/10">
-      <div class="max-w-7xl mx-auto flex flex-col gap-6 md:gap-8">
-        <div class="flex flex-col md:flex-row justify-between text-[13px] md:text-[14px] leading-relaxed font-normal tracking-wide gap-8 md:gap-0">
-          <div class="flex flex-wrap gap-8 sm:gap-12 md:gap-16 lg:gap-24">
-            <div class="flex flex-col gap-2 leading-loose">
-              <a class="hover:text-gray-300 transition-colors" href="built.html">Built</a>
-              <a class="hover:text-gray-300 transition-colors" href="studio.html">Studio</a>
-              <a class="hover:text-gray-300 transition-colors" href="built.html">Projects</a>
-            </div>
-            <div class="flex flex-col gap-2 leading-loose">
-              <a class="hover:text-gray-300 transition-colors" href="create.html">Create</a>
-              <a class="hover:text-gray-300 transition-colors" href="think.html">Think</a>
-              <a class="hover:text-gray-300 transition-colors" href="connect.html">Connect</a>
-            </div>
-            <div class="flex flex-col gap-2 leading-loose">
-              <span class="text-white/80 text-sm">Chennai</span>
-              <span class="text-white/60 text-sm">Tamil Nadu, India</span>
-            </div>
+  <footer class="w-full footer-gradient text-white pt-12 sm:pt-16 pb-8 sm:pb-12 px-4 sm:px-8 md:px-12 lg:px-20 border-t border-white/10 relative z-30">
+    <div class="max-w-7xl mx-auto flex flex-col gap-8">
+      <div class="flex flex-col md:flex-row justify-between text-[14px] leading-relaxed font-normal tracking-wide gap-8 md:gap-0">
+        <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-8 sm:gap-12 md:gap-16 lg:gap-24">
+          <div class="flex flex-col gap-2.5 leading-loose">
+            <a class="hover:text-gray-300 transition-colors" href="built.html">Built</a>
+            <a class="hover:text-gray-300 transition-colors" href="studio.html">Studio</a>
+          </div>
+          <div class="flex flex-col gap-2.5 leading-loose">
+            <a class="hover:text-gray-300 transition-colors" href="create.html">Create</a>
+            <a class="hover:text-gray-300 transition-colors" href="think.html">Think</a>
+            <a class="hover:text-gray-300 transition-colors" href="connect.html">Connect</a>
+          </div>
+          <div class="flex flex-col gap-2.5 leading-loose col-span-2 sm:col-span-1">
+            <span class="text-white/80 text-sm">Chennai</span>
+            <span class="text-white/60 text-sm">Tamil Nadu, India</span>
+          </div>
         </div>
-
-          <div class="flex flex-col gap-2 md:text-right leading-loose">
-            <a class="hover:text-gray-300 transition-colors" href="tel:+916369325726">+91 63693 25726</a>
-            <a class="hover:text-gray-300 transition-colors" href="mailto:admin@sandydesignstudio.com">admin@sandydesignstudio.com</a>
-            <a class="hover:text-gray-300 transition-colors" href="#">Company Profile</a>
+        <div class="flex flex-col gap-2.5 md:text-right leading-loose">
+          <a class="hover:text-gray-300 transition-colors" href="tel:+916369325726">+91 63693 25726</a>
+          <a class="hover:text-gray-300 transition-colors break-all sm:break-normal" href="mailto:admin@sandydesignstudio.com">admin@sandydesignstudio.com</a>
+          <a class="hover:text-gray-300 transition-colors" href="#">Company Profile</a>
         </div>
       </div>
-
-      <div class="flex gap-3.5 mt-2">
-          <a aria-label="LinkedIn" class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#0c1334] via-[#152259] to-[#27397f] border border-white/20 rounded-full flex items-center justify-center text-white hover:brightness-110 transition-all micro-hover" href="https://www.linkedin.com/company/sandydesignstudio"><i class="fa-brands fa-linkedin-in text-base sm:text-lg"></i></a>
-          <a aria-label="Instagram" class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#0c1334] via-[#152259] to-[#27397f] border border-white/20 rounded-full flex items-center justify-center text-white hover:brightness-110 transition-all micro-hover" href="https://www.instagram.com/sandydesignstudio_"><i class="fa-brands fa-instagram text-base sm:text-lg"></i></a>
-          <a aria-label="Facebook" class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#0c1334] via-[#152259] to-[#27397f] border border-white/20 rounded-full flex items-center justify-center text-white hover:brightness-110 transition-all micro-hover" href="#"><i class="fa-brands fa-facebook-f text-base sm:text-lg"></i></a>
-          <a aria-label="YouTube" class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#0c1334] via-[#152259] to-[#27397f] border border-white/20 rounded-full flex items-center justify-center text-white hover:brightness-110 transition-all micro-hover" href="#"><i class="fa-brands fa-youtube text-base sm:text-lg"></i></a>
+      <div class="flex gap-3 sm:gap-4 mt-2">
+        <a aria-label="LinkedIn" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0C1334] hover:bg-gray-200 transition-colors micro-hover" href="https://www.linkedin.com/company/sandydesignstudio"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+        <a aria-label="Instagram" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0C1334] hover:bg-gray-200 transition-colors micro-hover" href="https://www.instagram.com/sandydesignstudio_"><i class="fa-brands fa-instagram text-lg"></i></a>
+        <a aria-label="Facebook" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0C1334] hover:bg-gray-200 transition-colors micro-hover" href="#"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+        <a aria-label="YouTube" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0C1334] hover:bg-gray-200 transition-colors micro-hover" href="#"><i class="fa-brands fa-youtube text-lg"></i></a>
       </div>
-
-      <hr class="border-t border-white/20 w-full mt-2 mb-4" />
-
-      <div class="flex-grow flex flex-col items-center justify-center text-center w-full pb-6">
-          <h1 class="hero-line">
-            <span class="hero-sans text-white">Design that&nbsp;</span>
-            <span class="hero-serif text-white">gives&nbsp; </span>
-            <span class="hero-serif text-white">the&nbsp; </span>
-            <span class="hero-serif text-white">brand&nbsp; </span>
-            <span class="hero-serif text-white">it&nbsp; </span>
-            <span class="hero-serif text-white">deserves&nbsp; </span>
-          </h1>
+      <hr class="border-t border-white/20 w-full mt-2 sm:mt-4 mb-4 sm:mb-6" />
+      <div class="flex-grow flex flex-col items-center justify-center text-center w-full pb-4 sm:pb-8 overflow-x-auto scrollbar-hide">
+        <h1 class="hero-line" style="white-space: nowrap;">
+          <span style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: clamp(1.2rem, 3.2vw, 3.5rem); color: #fff;">Design That&nbsp;</span>
+          <span style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; letter-spacing: -0.02em; line-height: 0.95; font-size: clamp(1.2rem, 3.2vw, 3.5rem); color: #fff;">Gives The Brand It Deserves</span>
+        </h1>
       </div>
     </div>
-</footer>
+  </footer>
 
   <script>
     // Initialize Lucide Icons
@@ -1110,22 +1119,20 @@
 
         slides.forEach((slide, i) => {
           const distance = i - floatIndex;
-          const translateX = distance * 100; // base slide horizontal translation
+          const translateX = distance * 100;
           
           let opacity = 1 - Math.abs(distance);
           opacity = Math.max(0, Math.min(1, opacity));
-          opacity = Math.pow(opacity, 1.4); // smoother fade curve
+          opacity = Math.pow(opacity, 1.4);
 
           slide.style.transform = `translateX(${translateX}%)`;
           slide.style.opacity = opacity;
           slide.style.pointerEvents = Math.abs(distance) < 0.5 ? 'auto' : 'none';
           slide.style.zIndex = Math.round(10 - Math.abs(distance) * 10);
 
-          // === INTRA-SLIDE VERTICAL RISE-UP / REVEAL ANIMATIONS ===
           const absDist = Math.abs(distance);
           const easeDist = Math.pow(absDist, 1.2); 
 
-          // 1. Staggered image vertical rise reveal
           const images = slide.querySelectorAll('.member-img-wrapper');
           images.forEach((img, idx) => {
             const stagger = 1 + (idx * 0.2); 
@@ -1134,7 +1141,6 @@
             img.style.transform = `translateY(${yOffset}px) scale(${scale})`;
           });
 
-          // 2. Team member names & roles vertical rise reveal
           const memberTexts = slide.querySelectorAll('.flex-col.items-center > h3, .flex-col.items-center > p');
           memberTexts.forEach((txt, idx) => {
             const yOffset = easeDist * 80;
@@ -1142,7 +1148,6 @@
             txt.style.opacity = Math.max(0, 1 - (absDist * 1.8)); 
           });
 
-          // 3. Right-side text content vertical stagger rise reveal
           const textBlocks = slide.querySelectorAll('.text-left > *');
           textBlocks.forEach((el, idx) => {
             const stagger = 1 + (idx * 0.15);
@@ -1170,13 +1175,11 @@
       // ---------- GSAP GLOBAL SCROLL REVEAL ANIMATIONS ----------
       gsap.registerPlugin(ScrollTrigger);
 
-      // Hero video entrance slide from right to left with pop effect
       gsap.fromTo(".hero-video-wrapper",
         { x: 80, opacity: 0, scale: 0.92 },
         { x: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" }
       );
 
-      // General scroll reveal elements (excluding footer)
       gsap.utils.toArray('.scroll-reveal').forEach(el => {
         gsap.fromTo(el, 
           { opacity: 0, y: 50, scale: 0.96 },
@@ -1195,7 +1198,6 @@
         );
       });
 
-      // Custom Clipping Reveal Animation specifically for the Founder Role Title
       gsap.fromTo(".founder-role-reveal",
         { y: "110%", opacity: 0 },
         {
